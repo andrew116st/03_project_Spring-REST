@@ -1,8 +1,5 @@
-package ru.andrew116st.springcourse.FirstRestApp.dto;
+package ru.andrew116st.springcourse.dto;
 
-import ru.andrew116st.springcourse.FirstRestApp.models.Sensor;
-
-import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

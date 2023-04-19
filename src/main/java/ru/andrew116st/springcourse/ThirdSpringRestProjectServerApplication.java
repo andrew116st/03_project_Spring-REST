@@ -1,4 +1,4 @@
-package ru.andrew116st.springcourse.ThirdSpringRestProjectServer;
+package ru.andrew116st.springcourse;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

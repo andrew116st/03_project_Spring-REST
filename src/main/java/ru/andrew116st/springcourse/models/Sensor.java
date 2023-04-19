@@ -1,4 +1,4 @@
-package ru.andrew116st.springcourse.FirstRestApp.models;
+package ru.andrew116st.springcourse.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

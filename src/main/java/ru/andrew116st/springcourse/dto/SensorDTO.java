@@ -1,11 +1,7 @@
-package ru.andrew116st.springcourse.FirstRestApp.dto;
+package ru.andrew116st.springcourse.dto;
 
-import ru.andrew116st.springcourse.FirstRestApp.models.Measurement;
-
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 public class SensorDTO {
     @NotEmpty(message = "Name should not be empty")

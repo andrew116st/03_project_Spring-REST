@@ -1,4 +1,4 @@
-package ru.andrew116st.springcourse.FirstRestApp.controllers;
+package ru.andrew116st.springcourse.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,12 +6,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.andrew116st.springcourse.FirstRestApp.dto.SensorDTO;
-import ru.andrew116st.springcourse.FirstRestApp.models.Sensor;
-import ru.andrew116st.springcourse.FirstRestApp.services.SensorService;
+import ru.andrew116st.springcourse.dto.SensorDTO;
+import ru.andrew116st.springcourse.models.Sensor;
+import ru.andrew116st.springcourse.services.SensorService;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController // @Controller + @ResponseBody над каждым методом
 @RequestMapping("/sensors")
