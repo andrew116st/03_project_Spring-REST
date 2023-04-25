@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.andrew116st.springcourse.models.Sensor;
 import ru.andrew116st.springcourse.repositories.SensorRepository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 @Transactional(readOnly = true)
 
@@ -24,6 +27,18 @@ public class SensorService {
     @Transactional
     public void save(Sensor sensor){
         sensorRepository.save(sensor);
+
+    }
+
+
+
+
+    @Transactional
+    public boolean  checkSensorExist (String name){
+
+        List<Sensor> foundSensor = sensorRepository.findByName(name);
+
+        return !foundSensor.isEmpty();
 
     }
 
