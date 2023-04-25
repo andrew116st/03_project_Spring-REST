@@ -20,6 +20,7 @@ public class SensorService {
 
     @Autowired
     public SensorService(SensorRepository sensorRepository) {
+
         this.sensorRepository = sensorRepository;
     }
 
@@ -30,7 +31,11 @@ public class SensorService {
 
     }
 
+    @Transactional
+    public Sensor findByName(String sensor){
 
+        return sensorRepository.findByName(sensor).stream().findFirst().orElse(null);
+    }
 
 
     @Transactional
