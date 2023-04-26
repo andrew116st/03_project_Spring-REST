@@ -1,5 +1,6 @@
 package ru.andrew116st.springcourse.controllers;
 
+import org.hibernate.Hibernate;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import ru.andrew116st.springcourse.services.SensorService;
 import ru.andrew116st.springcourse.util.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController // @Controller + @ResponseBody над каждым методом
@@ -25,6 +27,7 @@ import java.util.List;
 public class MeasurementController {
 
     private final MeasurementService measurementService;
+
 
     private final SensorService sensorService;
     private final ModelMapper modelMapper;
@@ -92,6 +95,40 @@ public class MeasurementController {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 
 
+    }
+
+    @GetMapping()
+    private  List<MeasurementDTO> findAllMeasurements(){
+
+            List<Measurement> allMeasurements = measurementService.findAllMeasurements();
+
+            List<MeasurementDTO> foundMeasurements= new ArrayList<MeasurementDTO>();
+
+        for (Measurement measurement : allMeasurements) {
+            MeasurementDTO measurementDTO = modelMapper.map(measurement, MeasurementDTO.class);
+
+            foundMeasurements.add(measurementDTO);
+        }
+
+            return foundMeasurements;
+    }
+
+    @GetMapping("/rainyDaysCount")
+    private  int findAllRainyDays(){
+
+        List<Measurement> allRainyDays = measurementService.findAllMeasurements();
+
+        int countRainy = 0;
+
+        for (Measurement measurement : allRainyDays) {
+
+            if (measurement.getRaining()){
+                countRainy++;
+            }
+
+        }
+
+        return countRainy;
     }
 
 
