@@ -6,15 +6,15 @@ import javax.validation.constraints.NotNull;
 
 public class MeasurementDTO {
 
-    @NotNull(message = "Сенсор не идентифицирован")
+    @NotNull(message = "Sensor not identified")
     private SensorDTO sensor;
 
-    @NotNull(message = "Значение параметра некорректно")
+    @NotNull(message = "Parameter value is incorrect")
     private Boolean raining;
 
-    @NotNull(message = "Значение температуры не должно быть пустым")
-    @Min(value = -100, message = "Введите значение больше -100 ")
-    @Max(value = 100, message = "Введите значение меньше 100 ")
+    @NotNull(message = "The temperature value must not be empty")
+    @Min(value = -100, message = "Please enter a value greater than -100 ")
+    @Max(value = 100, message = "Please enter a value less than - 100 ")
     private Double value;
 
     public SensorDTO getSensor() {

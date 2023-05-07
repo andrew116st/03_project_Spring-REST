@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class Measurement {
 
-    @NotNull(message = "Сенсор не идентифицирован")
+    @NotNull(message = "Sensor not identified")
     @ManyToOne
     @JoinColumn(name = "sensor_id", referencedColumnName = "id")
     private Sensor sensor;
@@ -25,17 +25,17 @@ public class Measurement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull(message = "Значение параметра некорректно")
+    @NotNull(message = "Parameter value is incorrect")
     @Column(name = "raining")
     private Boolean raining;
 
-    @NotNull(message = "Значение температуры не должно быть пустым")
-    @Min(value = -100, message = "Введите значение больше -100 ")
-    @Max(value = 100, message = "Введите значение меньше 100 ")
+    @NotNull(message = "The temperature value must not be empty")
+    @Min(value = -100, message = "Please enter a value greater than -100 ")
+    @Max(value = 100, message = "Please enter a value less than - 100 ")
     @Column(name = "value")
     private Double value;
 
-    @NotNull(message = "Время измерения не назначено")
+    @NotNull(message = "Measurement time not assigned")
     @Column (name= "created_at")
     @Temporal(TemporalType.TIMESTAMP)
 
